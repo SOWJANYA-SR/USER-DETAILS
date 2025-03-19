@@ -21,12 +21,12 @@ pipeline {
         script {
             echo "Copying updated application files to EC2..."
             sh '''
-            scp -o StrictHostKeyChecking=no -i /var/lib/jenkins/jenkins.pem -r app/main.py app/templates ubuntu@3.110.116.147:/home/ubuntu/USER-DETAILS/app/
+            scp -o StrictHostKeyChecking=no -i /var/lib/jenkins/sowjikey-1.pem -r app/main.py app/templates ubuntu@3.110.116.147:/home/ubuntu/USER-DETAILS/app/
             '''
             
             echo "Restarting application on EC2..."
             sh '''
-            ssh -o StrictHostKeyChecking=no -i /var/lib/jenkins/jenkins.pem ubuntu@3.110.116.147<<EOF
+            ssh -o StrictHostKeyChecking=no -i /var/lib/jenkins/sowjikey-1.pem ubuntu@3.110.116.147<<EOF
             sudo pkill -f gunicorn || echo "Gunicorn process not found"
             cd /home/ubuntu/USER-DETAILS/app
             source /home/ubuntu/USER-DETAILS/venv/bin/activate
