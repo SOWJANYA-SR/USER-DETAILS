@@ -6,7 +6,7 @@ pipeline {
         EC2_HOST = "3.110.116.147"      // Replace with your EC2 instance IP
         APP_DIR = "/home/ubuntu/USER-DETAILS/app" // Path to app directory on EC2
         SSH_KEY = "/var/lib/jenkins/sowjikey1.pem"    // Path to your EC2 private key
-        APP_PORT = "50"                    // Flask application port
+        APP_PORT = "5000"                    // Flask application port
     }
 
     stages {
